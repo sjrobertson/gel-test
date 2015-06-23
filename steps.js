@@ -1,7 +1,8 @@
 /**
  *
  */
-module.exports.init = function() {
+module.exports.init = function(fixturepage) {
+    console.log('>>>>>>>>>> fixturepage is ', fixturepage);
     var Yadda = require('yadda');
 
     var web = {
@@ -13,11 +14,15 @@ module.exports.init = function() {
 
     var library = Yadda.localisation.English.library(dictionary)
 
-        .when('I open page "$URL"', function(url) {
+        .when('I go to the url "$URL"', function(url) {
             web.page = casper.open(url);
         })
 
-        .then('the title should be "$TITLE"', function(title) {
+        .when('I go to the Fixture Page', function() {
+            web.page = casper.open(fixturepage);
+        })
+
+        .then('the page has a title of "$TITLE"', function(title) {
             web.page.test.assertTitle(title, 'Page title is ' + casper.getTitle());
         })
 
@@ -70,7 +75,7 @@ module.exports.init = function() {
             });
         })
 
-        .then ('"$PROPERTY" of an element with selector "$SELECTOR" is $VALUE', function(property, selector, value) {
+        .then ('an element with selector "$SELECTOR" has a "$PROPERTY" of "$VALUE"', function(selector, property, value) {
 
             var v = web.page.evaluate(function (property, selector) {
                 return document.defaultView.getComputedStyle(document.querySelector(selector), null).getPropertyValue(property)//document.defaultView.getComputedStyle(document.querySelector(selector), null).getPropertyValue(property);
