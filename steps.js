@@ -9,7 +9,7 @@ module.exports.init = function() {
     };
 
     var dictionary = new Yadda.Dictionary()
-        .define('SIZE', /(\d+px)/);
+        .define('SIZE', /(-?\d+px)/);
 
     var library = Yadda.localisation.English.library(dictionary)
 
@@ -47,7 +47,39 @@ module.exports.init = function() {
             if (found !== null) {
                 web.page.test.assertEquals(found[1].toLowerCase(), 'h1', 'The first heading after the body tag isn\'t H1.');
             }
-        });
+        })
+
+        .when ('screenwidth is set to "$DIMENSION"', function(dimension) {
+            web.page.viewport(+dimension, +dimension);
+        })
+
+        .then ('touch is not available', function() {
+            var v = web.page.evaluate(function () {
+                document.documentElement.classList.remove('touch');
+                document.documentElement.classList.add('no-touch');
+                return document.documentElement.className;
+            });
+
+            console.log("class is "+v);
+        })
+
+        .then ('touch is available', function() {
+            web.page.evaluate(function () {
+                document.documentElement.classList.add('touch');
+                document.documentElement.classList.remove('no-touch');
+            });
+        })
+
+        .then ('"$PROPERTY" of an element with selector "$SELECTOR" is $VALUE', function(property, selector, value) {
+
+            var v = web.page.evaluate(function (property, selector) {
+                return document.defaultView.getComputedStyle(document.querySelector(selector), null).getPropertyValue(property)//document.defaultView.getComputedStyle(document.querySelector(selector), null).getPropertyValue(property);
+            }, property, selector);
+
+            web.page.test.assertEquals(v, value);
+        })
+
+        ;
 
     return library;
 };
