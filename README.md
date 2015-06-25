@@ -36,10 +36,12 @@ See the documentation for CasperJS for more information.
 
 gel-test requires two inputs: a feature file (written in the standard "given, when, then" style) and the URL of a fixture page to run the feature tests against.
 
-All feature files are stored in the `features` folder of the project. The test URL is temporarily hardcoded in the application source code but will eventually be possible to control via a `config.json` file.
+All feature files are grouped into folders inside the `features` directory. For example all feature files related to GEL Typography can be found in the `features/typography` folder.
+
+The test requires two inputs: the URL of a *fixture page*, which the tests will be run against, and the name of *features* folder.
 
 To run the tests you need to use the path to the specific 1.1.0 version of CasperJS that you installed in the previous step. From the project root folder:
 
 ```
-/usr/local/lib/node_modules/casperjs/bin/casperjs test index.js
+/usr/local/lib/node_modules/casperjs/bin/casperjs test index.js --fixturepage=http://bbc.github.io/gel-typography/ --features=typography
 ```
