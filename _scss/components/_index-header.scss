@@ -1,0 +1,19 @@
+.gel-index-header {
+    border-bottom: 2px solid #404040;
+    margin-top: double($gel-alt-spacing-unit);
+    p {
+        margin-top: double($gel-spacing-unit);
+        margin-bottom: double($gel-alt-spacing-unit);
+        color: $gel-color--cod-gray;
+    }
+    .gel-icon {
+        width:28px;
+        height:28px;
+        @if $enhanced {
+            @include mq($from: gel-bp-m) {
+                width:32px;
+                height:32px;
+            }
+        }
+    }
+}

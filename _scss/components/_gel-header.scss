@@ -1,0 +1,44 @@
+.gel-site-header {
+    border-top:1px solid $gel-color--gallery;
+    border-bottom:1px solid $gel-color--gallery;
+    line-height: 0;
+    padding-top: ($gel-alt-spacing-unit);
+    padding-bottom: ($gel-alt-spacing-unit);
+    @if $enhanced {
+    @include mq($from: gel-bp-l) {
+            padding-top: double($gel-spacing-unit);
+            padding-bottom: double($gel-spacing-unit);
+        }
+    }
+    .gel-brand {
+        margin: 0;
+        display:inline-block;
+        position:relative;
+
+        object {
+            @if $enhanced {
+            @include mq($from: gel-bp-l) {
+                    width:164px;
+                }
+            }
+        }
+    }
+
+    .gel-brand:active {
+          top: 1px;
+    }
+
+    i {
+         @extend %gel-minion;
+         color:white;
+         background:$gel-color--orange;
+         font-style:normal;
+         font-weight: bold;
+         vertical-align: top;
+         padding-left:4px;
+         padding-right:4px;
+
+    }
+}
+
+

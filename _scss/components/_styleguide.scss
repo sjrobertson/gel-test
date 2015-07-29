@@ -1,0 +1,208 @@
+/*------------------------------------*\
+    #STYLEGUIDE HEADER
+\*------------------------------------*/
+
+.gel-styleguide-header {
+    margin-top: $gel-alt-spacing-unit;
+    margin-bottom: $gel-alt-spacing-unit;
+}
+
+.bbc-brand,
+.gel-brand {
+    display: block;
+    margin-bottom: $gel-alt-spacing-unit;
+}
+
+
+/*------------------------------------*\
+    #STYLEGUIDE MENU
+\*------------------------------------*/
+
+.gel-styleguide-menu {
+    margin-top: double($gel-spacing-unit);
+    padding-bottom: double($gel-alt-spacing-unit);
+}
+
+.gel-styleguide-menu__group {
+    margin-bottom: double($gel-spacing-unit);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.gel-styleguide-menu__group-title {
+    margin-bottom: $gel-spacing-unit;
+}
+
+.gel-styleguide-menu__group-list {
+    list-style: none;
+}
+
+/*------------------------------------*\
+    #STYLEGUIDE BODY
+\*------------------------------------*/
+
+.gel-styleguide-body__section {
+    border-top: 1px solid $gel-color--dusty-gray;
+}
+
+.gel-styleguide-body__title {
+    margin-bottom: double($gel-alt-spacing-unit);
+
+}
+
+.gel-styleguide-body h2.gel-trafalgar-bold {
+    @extend %gel-trafalgar-bold;
+}
+
+/*------------------------------------*\
+    #STYLEGUIDE ITEM
+\*------------------------------------*/
+
+.gel-styleguide-item {
+    margin-bottom: quadruple($gel-spacing-unit);
+}
+
+.gel-styleguide-item__title {
+    margin-bottom: $gel-spacing-unit;
+}
+
+.gel-styleguide-body__title, .gel-styleguide-item__title, .component-title {
+    @extend %gel-wrap;
+}
+
+/*------------------------------------*\
+    #TYPE DEMO
+\*------------------------------------*/
+
+.type-demo {
+    @include rem('margin-bottom', double($gel-spacing-unit));
+}
+
+/**
+ * 1. Just incase this is nested within a bold type class
+ */
+.type-demo__class {
+    color: #565656;
+    letter-spacing: 0; /* [1] */
+}
+
+/**
+ * 1. Remove an text-tranforms which might be missing with the look and feel
+ */
+.type-demo__sample-scale {
+    text-transform: none; /* [1] */
+}
+
+.type-demo__settings {
+    color: $gel-color--orange;
+}
+
+/*------------------------------------*\
+    #GRID DEMO
+\*------------------------------------*/
+
+.gel-style-guide-grid-item {
+  @extend %gel-pica;
+  background-color: #c7e1e4; /*#a2bec6*/
+  text-align: center;
+  padding: $gel-spacing-unit 0;
+}
+
+/*------------------------------------*\
+    #ICON DEMO
+\*------------------------------------*/
+
+.gel-style-guide-icon {
+    text-align: center;
+}
+
+.gel-styleguide__icon-demo {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    margin-bottom: double($gel-spacing-unit);
+}
+
+/*------------------------------------*\
+    #COLOUR DEMO
+\*------------------------------------*/
+
+.gel-style-guide-colour {
+    text-align:center;
+}
+
+.gel-styleguide__colour-demo {
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+    padding-bottom: calc(100% - 2px);
+    height: 0;
+    border-radius: 50%;
+    border: 1px solid $gel-color--dusty-gray;
+    position: relative;
+}
+
+.gel-styleguide__colour-demo:after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: -24px;
+}
+
+/* White */
+.gel-style-guide-colour--white .gel-styleguide__colour-demo:after {
+    content: "#fff";
+}
+.gel-style-guide-colour--white .gel-styleguide__colour-demo {
+    background-color: $gel-color--white;
+}
+
+/* Body text */
+.gel-style-guide-colour--dark-text .gel-styleguide__colour-demo:after {
+    content: "#404040";
+}
+.gel-style-guide-colour--dark-text .gel-styleguide__colour-demo {
+    background-color: $gel-color--tundora;
+}
+
+/* Lighter body text */
+.gel-style-guide-colour--light-text .gel-styleguide__colour-demo:after {
+    content: "#767676";
+}
+.gel-style-guide-colour--light-text .gel-styleguide__colour-demo {
+    background-color: $gel-color--cod-gray;
+}
+
+/* GEL Orange */
+.gel-style-guide-colour--gel-orange .gel-styleguide__colour-demo:after {
+    content: "#e6711b";
+}
+.gel-style-guide-colour--gel-orange .gel-styleguide__colour-demo {
+    background-color: $gel-color--orange;
+}
+
+/* Backgrounds */
+.gel-style-guide-colour--alto .gel-styleguide__colour-demo:after {
+    content: "#dcdcdc";
+}
+.gel-style-guide-colour--alto .gel-styleguide__colour-demo {
+    background-color: $gel-color--alto;
+}
+
+/* Keylines */
+.gel-style-guide-colour--dusty-gray .gel-styleguide__colour-demo:after {
+    content: "#ccc";
+}
+.gel-style-guide-colour--dusty-gray .gel-styleguide__colour-demo {
+    background-color: $gel-color--dusty-gray;
+}
+
+/* Backgrounds */
+.gel-style-guide-colour--gallery .gel-styleguide__colour-demo:after {
+    content: "#f5f5f5";
+}
+.gel-style-guide-colour--gallery .gel-styleguide__colour-demo {
+    background-color: $gel-color--gallery;
+}
