@@ -2,7 +2,6 @@
  *
  */
 module.exports.init = function(fixturepage) {
-    console.log('>>>>>>>>>> fixturepage is ', fixturepage);
     var Yadda = require('yadda');
 
     var web = {
